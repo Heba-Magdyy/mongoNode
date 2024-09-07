@@ -1,21 +1,18 @@
 const mongoose = require("mongoose");
 
-const postSchema = new mongoose.Schema(
+const adsSchema = new mongoose.Schema(
     {
         title: {
             type: String,
             required: ["true", "Please add the title"],
         },
 
-        body: {
+        img: {
             type: String,
-            required: ["true", "Please add the body"]
-        },
-        tags: {
-            type: Array,
-            default:[]
+            required: ["true", "Please add the img"]
         },
         user_id :{
+            required: true,
             type: mongoose.Schema.Types.ObjectId,
             ref:"User"
         }
@@ -24,5 +21,5 @@ const postSchema = new mongoose.Schema(
 );
 
 
-const Post = mongoose.model("Post",postSchema);
-module.exports = Post;
+const Ads = mongoose.model("Ads",adsSchema);
+module.exports = {Ads};
